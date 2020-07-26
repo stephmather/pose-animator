@@ -38,6 +38,7 @@ import * as test_img from './resources/images/test.png';
 import * as full_body from './resources/images/full-body.png';
 import * as full_body_1 from './resources/images/full-body_1.png';
 import * as full_body_2 from './resources/images/full-body_2.png';
+import * as blank from './resources/images/blank.jpg';
 
 // clang-format off
 import {
@@ -64,6 +65,7 @@ const sourceImages = {
   'full_body': full_body.default,
   'full_body_1': full_body_1.default,
   'full_body_2': full_body_2.default,
+  'blank': blank.default,
 };
 
 let skeleton;
