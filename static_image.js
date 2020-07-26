@@ -73,11 +73,11 @@ let canvasScope;
 let posenet;
 let facemesh;
 
-const VIDEO_WIDTH = 513;
-const VIDEO_HEIGHT = 513;
+const VIDEO_WIDTH = 500*2;
+const VIDEO_HEIGHT = 256*2;
 
-const CANVAS_WIDTH = 513;
-const CANVAS_HEIGHT = 513;
+const CANVAS_WIDTH = 500*2;
+const CANVAS_HEIGHT = 256*2;
 
 const defaultQuantBytes = 2;
 const defaultMultiplier = 1.0;
@@ -97,6 +97,7 @@ let sourceImage;
  * Only the pose's keypoints that pass a minPartConfidence are drawn.
  */
 function drawResults(image, canvas, faceDetection, poses) {
+  console.log(poses)
   renderImageToCanvas(image, [VIDEO_WIDTH, VIDEO_HEIGHT], canvas);
   const ctx = canvas.getContext('2d');
   poses.forEach((pose) => {
