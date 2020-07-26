@@ -1,7 +1,7 @@
 #Build using
 # docker build -t pose_animator .
 #run using 
-# docker run -i -t -p 1234:1234 pose_animator
+# docker run --rm -i -t -p 1234:1234 pose_animator
 
 
 FROM node 
