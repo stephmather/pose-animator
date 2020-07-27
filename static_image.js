@@ -198,7 +198,7 @@ async function testImageAndEstimatePoses() {
     maxDetections: defaultMaxDetections,
     scoreThreshold: defaultMinPartConfidence,
     nmsRadius: defaultNmsRadius,
-  add static face
+  });
   faceDetection = await facemesh.estimateFaces(sourceImage, false, false);
   console.log(faceDetection); 
   faceDetection =   [
