@@ -207,13 +207,13 @@ async function testImageAndEstimatePoses() {
     "boundingBox": {
       "topLeft": [
         [
-          154.726318359375,
+          104.726318359375,
           6.968086242675781
         ]
       ],
       "bottomRight": [
         [
-          356.2803649902344,
+          306.2803649902344,
           233.28753662109375
         ]
       ]
