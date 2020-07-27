@@ -200,6 +200,7 @@ async function testImageAndEstimatePoses() {
     nmsRadius: defaultNmsRadius,
   });
   faceDetection = await facemesh.estimateFaces(sourceImage, false, false);
+  console.log(faceDetection); 
   predictedPoses =  [{'score': 0.32371445304906,
   'keypoints': [{'position': {'y': 46.36201244080919, 'x': 525.4400239156463},
     'part': 'nose',
