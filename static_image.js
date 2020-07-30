@@ -40,7 +40,7 @@ import * as full_body from './resources/images/full-body.png';
 import * as full_body_1 from './resources/images/full-body_1.png';
 import * as full_body_2 from './resources/images/full-body_2.png';
 import * as blank from './resources/images/blank.jpg';
-import * as results_json from './results.json';
+import * as results_json from './resources/images/results.json';
 
 // clang-format off
 import {
