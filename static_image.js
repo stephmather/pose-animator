@@ -40,6 +40,7 @@ import * as full_body from './resources/images/full-body.png';
 import * as full_body_1 from './resources/images/full-body_1.png';
 import * as full_body_2 from './resources/images/full-body_2.png';
 import * as blank from './resources/images/blank.jpg';
+import * as results_json from 'results.json';
 
 // clang-format off
 import {
@@ -200,7 +201,8 @@ async function testImageAndEstimatePoses() {
     nmsRadius: defaultNmsRadius,
   });
   faceDetection = await facemesh.estimateFaces(sourceImage, false, false);
-  console.log(faceDetection); 
+//   console.log(faceDetection); 
+  console.log(results_json.person_0)
   faceDetection =   [{'faceInViewConfidence': 1,
   'boundingBox': {'topLeft': [[154.726318359375, 6.968086242675781]],
    'bottomRight': [[356.2803649902344, 233.28753662109375]]},
