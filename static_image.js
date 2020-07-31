@@ -40,23 +40,12 @@ import * as full_body from './resources/images/full-body.png';
 import * as full_body_1 from './resources/images/full-body_1.png';
 import * as full_body_2 from './resources/images/full-body_2.png';
 import * as blank from './resources/images/blank.jpg';
-// import * as results_json from './resources/images/results.json';
+// import * as data from './resources/images/results.json';
 
-var json = (function() {
-  var json = null;
-  $.ajax({
-    'async': false,
-    'global': false,
-    'url': "./resources/images/results.json",
-    'dataType': "json",
-    'success': function(data) {
-      json = data;
-    }
-  });
-  return json;
-})();
 
-console.log(json);
+
+
+
 // clang-format off
 import {
   drawKeypoints,
@@ -216,10 +205,24 @@ async function testImageAndEstimatePoses() {
     nmsRadius: defaultNmsRadius,
   });
   faceDetection = await facemesh.estimateFaces(sourceImage, false, false);
-//   console.log(faceDetection); 
-  console.log(results_json.person_0)
+  console.log(faceDetection);
 
-  
+  var json = (function () {
+      var json = null;
+      $.ajax({
+          'async': false,
+          'global': false,
+          'url': "/resources/images/results.json",
+          'dataType': "json",
+          'success': function (data) {
+              json = data;
+          }
+      });
+      return json;
+  })();
+
+  predictedPoses = json.person_0.posenet
+  console.log(json.person_0);
 
   // Draw poses.
   drawDetectionResults();
@@ -242,12 +245,12 @@ let guiState = {
 
 function setupGui() {
   const gui = new dat.GUI();
-  
+
   const imageControls = gui.addFolder('Image');
   imageControls.open();
   gui.add(guiState, 'sourceImage', Object.keys(sourceImages)).onChange(() => testImageAndEstimatePoses());
   gui.add(guiState, 'avatarSVG', Object.keys(avatarSvgs)).onChange(() => loadSVG(avatarSvgs[guiState.avatarSVG]));
-  
+
   const debugControls = gui.addFolder('Debug controls');
   debugControls.open();
   gui.add(guiState, 'showKeypoints').onChange(drawDetectionResults);
@@ -285,6 +288,8 @@ export async function bindPage() {
 
 window.onload = bindPage;
 FileUtils.setDragDropHandler(loadSVG);
+
+
 
 // Target is SVG string or path
 async function loadSVG(target) {
